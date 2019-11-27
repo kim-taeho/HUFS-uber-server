@@ -1,0 +1,29 @@
+{
+  "name": "nuber-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kim-taeho/nuber-server.git"
+  },
+  "author": "kimtaeho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kim-taeho/nuber-server/issues"
+  },
+  "homepage": "https://github.com/kim-taeho/nuber-server#readme",
+  "dependencies": {
+    "@types/node": "^12.12.14",
+    "nodemon": "^2.0.1",
+    "ts-node": "^8.5.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.2"
+  },
+  "scripts": {
+    "dev": "cd src && nodemon --exec ts-node index.ts -e ts, graphql"
+  }
+}
