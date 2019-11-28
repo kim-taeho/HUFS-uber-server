@@ -1,6 +1,13 @@
+import { SayHelloQueryArgs, SayHelloResponse } from "src/types/graph";
+
 const resolvers = {
     Query: {
-        sayHello: () => "Hey hello there"
+        sayHello: (_, args: SayHelloQueryArgs): SayHelloResponse => {
+            return {
+                error: false,
+                text: `Hello ${args.name}`
+            }
+        }
     }
 }
 
