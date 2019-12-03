@@ -32,10 +32,10 @@ class User extends BaseEntity {
     verifiedEmail: boolean;
 
     @Column({ type: "text" })
-    firstname: string;
+    firstName: string;
 
     @Column({ type: "text" })
-    lastname: string;
+    lastName: string;
 
     @Column({ type: "int", nullable: true })
     age: number;
@@ -93,8 +93,8 @@ class User extends BaseEntity {
     @UpdateDateColumn()
     updatedAt: string;
 
-    get fullname(): string {
-        return `${this.firstname} ${this.lastname}`;
+    get fullName(): string {
+        return `${this.firstName} ${this.lastName}`;
     }
 
     public comparePassword(password: string): Promise<boolean> {
