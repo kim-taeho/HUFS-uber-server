@@ -4,12 +4,19 @@ import logger from "morgan"
 import helmet from "helmet"
 import schema from "./schema"
 import decodeJWT from "./utils/decodeJWT"
+import { NextFunction } from "express-serve-static-core"
+import { Response } from "express"
 
 class App {
     public app: GraphQLServer;
     constructor() {
         this.app = new GraphQLServer({
-            schema: schema
+            schema: schema,
+            context: req => {
+                return {
+                    req: req.request
+                };
+            }
         });
         this.middleware();
     }
@@ -21,10 +28,15 @@ class App {
         this.app.express.use(this.jwt);
     };
 
-    private jwt = async (req, res, next): Promise<void> => {
+    private jwt = async (req, res: Response, next: NextFunction): Promise<void> => {
         const token = req.get("X-JWT");
         if (token) {
             const user = await decodeJWT(token);
+            if (user) {
+                req.user = user;
+            } else {
+                req.user = undefined;
+            }
         }
         next();
     };

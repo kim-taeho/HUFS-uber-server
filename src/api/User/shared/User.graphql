@@ -24,7 +24,3 @@ type User {
     updatedAt: String
     fbId: String
 }
-
-type Query {
-    user: User
-}
