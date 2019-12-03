@@ -64,7 +64,7 @@ class User extends BaseEntity {
     isTaken: boolean;
 
     @Column({ type: "double precision", default: 0 })
-    lastLong: number;
+    lastLng: number;
 
     @Column({ type: "double precision", default: 0 })
     lastLat: number;

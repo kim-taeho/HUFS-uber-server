@@ -55,6 +55,7 @@ type GetMyPlacesResponse {
 type Query {
   GetMyPlaces: GetMyPlacesResponse!
   GetMyProfile: GetMyProfileResponse!
+  GetNearbyDrivers: GetNearbyDriversResponse!
 }
 
 type Place {
@@ -99,6 +100,10 @@ type CompletePhoneNumberVerificationResponse {
   token: String
 }
 
+type Subscription {
+  DriverSubscription: User
+}
+
 type EmailSignInResponse {
   ok: Boolean!
   error: String
@@ -121,6 +126,12 @@ type GetMyProfileResponse {
   ok: Boolean!
   error: String
   user: User
+}
+
+type GetNearbyDriversResponse {
+  ok: Boolean!
+  error: String
+  drivers: [User]
 }
 
 type ReportMovementResponse {
@@ -148,7 +159,7 @@ type User {
   isDriving: Boolean!
   isRiding: Boolean!
   isTaken: Boolean!
-  lastLong: Float
+  lastLng: Float
   lastLat: Float
   lastOrientation: Float
   chat: Chat
