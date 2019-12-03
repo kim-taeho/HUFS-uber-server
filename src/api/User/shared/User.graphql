@@ -20,6 +20,7 @@ type User {
     messages: [Message]
     rideAsPassenger: [Ride]
     rideAsDriver: [Ride]
+    places: [Place]
     createdAt: String!
     updatedAt: String
     fbId: String
