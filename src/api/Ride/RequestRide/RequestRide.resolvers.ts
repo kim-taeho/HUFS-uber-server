@@ -7,19 +7,30 @@ import Ride from "../../../entities/Ride";
 const resolvers: Resolvers = {
     Mutation: {
         RequestRide: privateResolver(
-            async (_, args: RequestRideMutationArgs, { req }): Promise<RequestRideResponse> => {
+            async (_, args: RequestRideMutationArgs, { req, pubSub }): Promise<RequestRideResponse> => {
                 const user: User = req.user;
-                try {
-                    const ride = await Ride.create({ ...args, passenger: user }).save();
-                    return {
-                        ok: true,
-                        error: null,
-                        ride
+                if (!user.isDriving && !user.isRiding) {
+                    try {
+                        const ride = await Ride.create({ ...args, passenger: user }).save();
+                        pubSub.publish("rideRequest", { NearbyRideSubscription: ride });
+                        user.isRiding = true;
+                        user.save();
+                        return {
+                            ok: true,
+                            error: null,
+                            ride
+                        }
+                    } catch (error) {
+                        return {
+                            ok: false,
+                            error: error.message,
+                            ride: null
+                        }
                     }
-                } catch (error) {
+                } else {
                     return {
                         ok: false,
-                        error: error.message,
+                        error: "You cant request two rides or drive and request",
                         ride: null
                     }
                 }
