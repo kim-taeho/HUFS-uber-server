@@ -15,7 +15,11 @@ class Ride extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: "text", enum: ["ACCEPTED", "FINISHED", "CANCELED", "REQUESTING", "ONROUTE"] })
+    @Column({
+        type: "text",
+        enum: ["ACCEPTED", "FINISHED", "CANCELED", "REQUESTING", "ONROUTE"],
+        default: "ACCEPTER"
+    })
     status: rideStatus
 
     @Column({ type: "text" })
@@ -54,7 +58,7 @@ class Ride extends BaseEntity {
     @ManyToOne(type => User, user => user.rideAsPassenger)
     passenger: User;
 
-    @ManyToOne(type => User, user => user.rideAsDriver)
+    @ManyToOne(type => User, user => user.rideAsDriver, { nullable: true })
     driver: User;
 }
 export default Ride;
