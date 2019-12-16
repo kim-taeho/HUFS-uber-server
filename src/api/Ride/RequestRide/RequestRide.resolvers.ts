@@ -12,6 +12,8 @@ const resolvers: Resolvers = {
                 if (!user.isDriving && !user.isRiding) {
                     try {
                         const ride = await Ride.create({ ...args, passenger: user }).save();
+                        // ride.id = parseInt(ride.id.toString());
+                        // console.log(typeof ride.id);
                         pubSub.publish("rideRequest", { NearbyRideSubscription: ride });
                         user.isRiding = true;
                         user.save();

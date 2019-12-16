@@ -7,12 +7,9 @@ const resolvers = {
             subscribe: withFilter(
                 (_, __, { pubSub }) => pubSub.asyncIterator("rideRequest"),
                 (payload, _, { context }) => {
-                    const user: User = context.curerntUser;
+                    const user: User = context.currentUser;
                     const {
-                        NearbyRideSubscription: {
-                            pickUpLat,
-                            pickUpLng
-                        }
+                        NearbyRideSubscription: { pickUpLat, pickUpLng }
                     } = payload;
                     const { lastLat: userLastLat, lastLng: userLastLng } = user;
                     return (
@@ -20,11 +17,11 @@ const resolvers = {
                         pickUpLat <= userLastLat + 0.05 &&
                         pickUpLng >= userLastLng - 0.05 &&
                         pickUpLng <= userLastLng + 0.05
-                    )
+                    );
                 }
             )
         }
     }
-}
+};
 
 export default resolvers;
