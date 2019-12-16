@@ -1,0 +1,1 @@
+{"version":3,"file":"createJWT.js","sourceRoot":"","sources":["../../../../HUFS-uber-server/src/utils/createJWT.ts"],"names":[],"mappings":";;;;;AAAA,8DAA+B;AAE/B,IAAM,SAAS,GAAG,UAAC,EAAU;IACzB,IAAM,KAAK,GAAG,sBAAG,CAAC,IAAI,CAAC;QACnB,EAAE,EAAE,EAAE;KACT,EAAE,uCAAuC,CAAC,CAAC;IAC5C,OAAO,KAAK,CAAC;AACjB,CAAC,CAAC;AAEF,kBAAe,SAAS,CAAC"}
