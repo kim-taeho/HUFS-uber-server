@@ -9,7 +9,9 @@
     "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
     "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts",
     "prebuild": "rm -rf dist",
-    "build": "tsc"
+    "build": "tsc",
+    "postbuild": "cd src && copy ./api/**/*.graphql ../dist/api",
+    "start": "cd dist && node ."
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "babel-runtime": "^6.26.0",
     "bcrypt": "^3.0.7",
     "class-validator": "^0.11.0",
+    "copy": "^0.3.2",
     "crossenv": "0.0.2-security",
     "dotenv": "^8.2.0",
     "graphql-tools": "^4.0.6",
