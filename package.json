@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/kim-taeho/nuber-server/issues"
   },
-  "homepage": "https://github.com/kim-taeho/nuber-server#readme",
+  "homepage": "https://github.com/kim-taeho/HUFS-uber-server#readme",
   "dependencies": {
     "@types/node": "^12.12.14",
     "babel-runtime": "^6.26.0",
