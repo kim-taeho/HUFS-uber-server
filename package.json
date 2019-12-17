@@ -29,8 +29,11 @@
     "bcrypt": "^3.0.7",
     "class-validator": "^0.11.0",
     "copy": "^0.3.2",
+    "cors": "^2.8.5",
     "crossenv": "0.0.2-security",
     "dotenv": "^8.2.0",
+    "gql-merge": "0.0.6",
+    "graphql-to-typescript": "^0.1.2",
     "graphql-tools": "^4.0.6",
     "graphql-yoga": "^1.18.3",
     "helmet": "^3.21.2",
@@ -54,9 +57,6 @@
     "@types/jsonwebtoken": "^8.3.5",
     "@types/mailgun-js": "^0.22.3",
     "@types/morgan": "^1.7.37",
-    "@types/twilio": "0.0.10",
-    "cors": "^2.8.5",
-    "gql-merge": "0.0.6",
-    "graphql-to-typescript": "^0.1.2"
+    "@types/twilio": "0.0.10"
   }
 }
