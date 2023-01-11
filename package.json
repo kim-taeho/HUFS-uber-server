@@ -27,7 +27,7 @@
     "@types/node": "^12.12.14",
     "babel-runtime": "^6.26.0",
     "bcrypt": "^3.0.7",
-    "class-validator": "^0.11.0",
+    "class-validator": "^0.14.0",
     "copy": "^0.3.2",
     "cors": "^2.8.5",
     "crossenv": "0.0.2-security",
